@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIセミナー定期開催 | 株式会社本質</title>
+<meta name="description" content="株式会社本質が定期開催するAIセミナー。Claudeを中心とした実践型オンラインセミナーで、中小企業がAIを"もう一人の同僚"として活用できる状態を目指します。" />
+
+<!-- ========== SEO ========== -->
+<link rel="canonical" href="https://tatsukowada-dot.github.io/honshitsu-website/seminar.html">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AIセミナー定期開催 | 株式会社本質">
+<meta property="og:description" content="株式会社本質が定期開催するAIセミナー。Claudeを中心とした実践型オンラインセミナーで、中小企業がAIを"もう一人の同僚"として活用できる状態を目指します。">
+<meta property="og:url" content="https://tatsukowada-dot.github.io/honshitsu-website/seminar.html">
+<meta property="og:image" content="https://tatsukowada-dot.github.io/honshitsu-website/assets/images/ogp.png">
+<meta property="og:site_name" content="株式会社本質">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIセミナー定期開催 | 株式会社本質">
+<meta name="twitter:description" content="株式会社本質が定期開催するAIセミナー。Claudeを中心とした実践型オンラインセミナーで、中小企業がAIを"もう一人の同僚"として活用できる状態を目指します。">
+<meta name="twitter:image" content="https://tatsukowada-dot.github.io/honshitsu-website/assets/images/ogp.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* セミナーページ専用 */
+.event-list{display:grid;grid-template-columns:1fr;gap:18px;}
+.event-item{
+  display:grid;grid-template-columns:130px 1fr auto;gap:24px;align-items:center;
+  background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);
+  padding:22px 26px;transition:.25s;
+}
+.event-item:hover{border-color:var(--blue-500);box-shadow:var(--shadow-sm);transform:translateY(-2px);}
+.event-date{
+  font-family:"Montserrat",sans-serif;
+}
+.event-date .ym{font-size:13px;color:var(--gray-500);font-weight:500;}
+.event-date .day{font-size:32px;color:var(--blue-700);font-weight:700;line-height:1;margin:2px 0 4px;}
+.event-date .dow{font-size:12px;color:var(--gray-500);}
+.event-info h3{font-size:16px;color:var(--blue-900);margin-bottom:8px;line-height:1.6;}
+.event-info .meta{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;}
+.event-info .tag{
+  background:var(--blue-100);color:var(--blue-700);padding:3px 10px;border-radius:30px;
+  font-weight:600;letter-spacing:.05em;
+}
+.event-info .tag.free{background:#fef3c7;color:#92400e;}
+.event-info .tag.online{background:var(--blue-50);color:var(--blue-500);}
+.event-info .tag.tool{background:#1a1a1a;color:#fff;}
+.event-link{
+  font-size:13px;color:var(--blue-700);font-weight:600;
+  border:1px solid var(--blue-700);padding:8px 16px;border-radius:6px;white-space:nowrap;
+}
+.event-link:hover{background:var(--blue-700);color:#fff;}
+
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.feat-item{
+  background:#fff;border-radius:var(--radius);padding:28px 22px;text-align:center;
+  border-top:3px solid var(--cyan-400);box-shadow:var(--shadow-sm);
+}
+.feat-item .feat-icon{
+  width:50px;height:50px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-700),var(--cyan-400));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:"Montserrat",sans-serif;font-weight:700;font-size:16px;
+  margin:0 auto 14px;
+}
+.feat-item h4{font-size:14px;color:var(--blue-900);margin-bottom:8px;line-height:1.6;}
+.feat-item p{font-size:12.5px;color:var(--gray-600);line-height:1.8;}
+
+.peatix-card{
+  background:linear-gradient(135deg,#0a2540 0%,#1d52b8 100%);color:#fff;
+  border-radius:var(--radius-lg);padding:48px 40px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.peatix-card::before{
+  content:"";position:absolute;top:-100px;right:-100px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(62,224,224,.18),transparent 70%);
+}
+.peatix-card-inner{position:relative;z-index:2;}
+.peatix-card .badge{
+  display:inline-block;background:rgba(255,255,255,.1);color:#fff;
+  font-family:"Montserrat",sans-serif;font-size:11px;letter-spacing:.2em;
+  padding:4px 12px;border-radius:30px;font-weight:600;margin-bottom:16px;
+}
+.peatix-card h3{color:#fff;font-size:22px;margin-bottom:12px;line-height:1.6;}
+.peatix-card p{color:rgba(255,255,255,.85);font-size:14px;margin-bottom:24px;line-height:1.9;}
+
+@media(max-width:900px){
+  .event-item{grid-template-columns:90px 1fr;gap:14px;padding:18px;}
+  .event-link{grid-column:1/-1;text-align:center;margin-top:8px;}
+  .feat-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:560px){
+  .feat-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><symbol id="honshitsuLogo" viewBox="0 0 200 200">
+    <defs><radialGradient id="bgGrad" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#a8e9f0"/><stop offset="40%" stop-color="#5b9ee0"/><stop offset="100%" stop-color="#1d52b8"/></radialGradient></defs>
+    <circle cx="100" cy="100" r="96" fill="url(#bgGrad)"/>
+    <g fill="none" stroke="#3ee0e0" stroke-linecap="round">
+      <circle cx="100" cy="100" r="84" stroke-width="1" stroke-dasharray="2 4" opacity=".7"/>
+      <circle cx="100" cy="100" r="74" stroke-width="1.2" opacity=".85"/>
+      <circle cx="100" cy="100" r="62" stroke-width="1" stroke-dasharray="6 6" opacity=".6"/>
+      <circle cx="100" cy="100" r="50" stroke-width="1.2" opacity=".75"/>
+      <circle cx="100" cy="100" r="38" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+    </g>
+    <g stroke="#3ee0e0" stroke-width="1" opacity=".55">
+      <line x1="100" y1="6" x2="100" y2="40"/><line x1="100" y1="160" x2="100" y2="194"/>
+      <line x1="6" y1="100" x2="40" y2="100"/><line x1="160" y1="100" x2="194" y2="100"/>
+    </g>
+    <g stroke="#3ee0e0" stroke-width="1.2" opacity=".65" fill="none">
+      <line x1="148" y1="32" x2="178" y2="62"/><line x1="32" y1="148" x2="62" y2="178"/>
+    </g>
+    <text x="100" y="92" font-family="'Cormorant Garamond','Times New Roman',serif" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="1.2" font-weight="500">HONSHITSU</text>
+    <text x="100" y="120" font-family="'Cormorant Garamond','Times New Roman',serif" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing=".5" font-weight="400">Technology</text>
+  </symbol></defs>
+</svg>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo"><svg class="logo-svg"><use href="#honshitsuLogo"/></svg><span>HONSHITSU<small>株式会社本質</small></span></a>
+    <nav><ul>
+      <li><a href="services/ai/index.html">事業内容</a></li>
+      <li class="current"><a href="seminar.html">セミナー</a></li>
+      <li><a href="news.html">お知らせ</a></li>
+      <li><a href="company.html">会社概要</a></li>
+    </ul></nav>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <a href="download.html" class="nav-cta" style="background:#fff;color:var(--blue-700);border:1.5px solid var(--blue-700);">資料DL</a>
+      <a href="contact.html" class="nav-cta">お問い合わせ</a>
+    </div>
+    <button class="hamburger" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">HOME</a><span>›</span>セミナー</div>
+    <span class="badge-highlight">AI SEMINAR</span>
+    <h1>AIを、<br><span class="accent">"もう一人の同僚"</span>に。</h1>
+    <p class="lead">
+      株式会社本質では、Claudeを中心としたAI実践セミナーを定期開催しています。中小企業の現場で本当に使えるAI活用法を、ハンズオン形式で身につける機会です。
+    </p>
+    <div class="btns">
+      <a href="https://peatix.com/group/16546509" target="_blank" rel="noopener" class="btn btn-primary">Peatixでイベントを見る →</a>
+      <a href="#past-events" class="btn btn-outline">過去開催実績を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- About / Why -->
+<section class="fade" style="background:#fff;">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">ABOUT THE SEMINAR</span>
+      <h2 class="section-title">なぜ、定期セミナーを開催するのか。</h2>
+      <p class="section-lead">AIは"知る"だけでは現場で使えません。「実際に手を動かして、自分の業務にどう使えるか」を体感する時間が、定着への一番の近道です。少人数オンラインで、参加者一人ひとりの業務に寄り添ったセミナーをお届けしています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="fade" style="background:var(--blue-50);">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">FEATURES</span>
+      <h2 class="section-title">本質のセミナー、4つの特徴。</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-item">
+        <div class="feat-icon">01</div>
+        <h4>Claude中心の実践セミナー</h4>
+        <p>業務利用に強いClaudeを軸に、ChatGPT・Gemini・Copilotとの使い分けまで体系的に学べます。</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">02</div>
+        <h4>中小企業の現場目線</h4>
+        <p>大企業向けの抽象論ではなく、中小企業の実務に即したユースケースを扱うので、すぐに業務に持ち帰れます。</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">03</div>
+        <h4>少人数オンライン</h4>
+        <p>5名〜の少人数クラスもご用意。質問しやすい雰囲気で、一人ひとりの業務課題に向き合います。</p>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon">04</div>
+        <h4>無料セミナーも開催</h4>
+        <p>「まずは雰囲気を知りたい」という方向けに、無料の入門セミナーも定期的に開催しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Past Events -->
+<section class="fade" id="past-events" style="background:#fff;">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">PAST EVENTS</span>
+      <h2 class="section-title">過去開催実績</h2>
+      <p class="section-lead">これまでに開催した主なセミナーです。同じテーマで再開催することも多いので、興味のある方はPeatixをフォローしてください。</p>
+    </div>
+    <div class="event-list">
+
+      <div class="event-item">
+        <div class="event-date"><div class="ym">2025.04</div><div class="day">23</div><div class="dow">THU 10:00</div></div>
+        <div class="event-info">
+          <h3>Claudeを"同僚"で終わらせない講座 — 管理職向けAI活用実践セミナー</h3>
+          <div class="meta">
+            <span class="tag tool">CLAUDE</span>
+            <span class="tag online">ONLINE</span>
+            <span class="tag">管理職向け</span>
+          </div>
+        </div>
+        <a href="https://peatix.com/event/4956330/view" target="_blank" rel="noopener" class="event-link">Peatixで見る →</a>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date"><div class="ym">2025.04</div><div class="day">21</div><div class="dow">TUE 19:00</div></div>
+        <div class="event-info">
+          <h3>Claudeで業務を半自動化する実践講座</h3>
+          <div class="meta">
+            <span class="tag tool">CLAUDE</span>
+            <span class="tag online">ONLINE</span>
+            <span class="tag">業務自動化</span>
+          </div>
+        </div>
+        <a href="https://peatix.com/event/4956320/view" target="_blank" rel="noopener" class="event-link">Peatixで見る →</a>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date"><div class="ym">2025.04</div><div class="day">17</div><div class="dow">FRI 19:00</div></div>
+        <div class="event-info">
+          <h3>【無料】AIが"もう一人の同僚"になる日 ── Claude Cowork実践講座</h3>
+          <div class="meta">
+            <span class="tag tool">CLAUDE</span>
+            <span class="tag online">ONLINE</span>
+            <span class="tag free">無料</span>
+            <span class="tag">入門</span>
+          </div>
+        </div>
+        <a href="https://peatix.com/event/4941834/view" target="_blank" rel="noopener" class="event-link">Peatixで見る →</a>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date"><div class="ym">2025.04</div><div class="day">14</div><div class="dow">TUE 19:00</div></div>
+        <div class="event-info">
+          <h3>【無料】AIが"もう一人の同僚"になる日 ── Claude Cowork実践講座</h3>
+          <div class="meta">
+            <span class="tag tool">CLAUDE</span>
+            <span class="tag online">ONLINE</span>
+            <span class="tag free">無料</span>
+            <span class="tag">入門</span>
+          </div>
+        </div>
+        <a href="https://peatix.com/event/4949821/view" target="_blank" rel="noopener" class="event-link">Peatixで見る →</a>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date"><div class="ym">2025.04</div><div class="day">13</div><div class="dow">MON 19:00</div></div>
+        <div class="event-info">
+          <h3>【初心者歓迎】業務が変わるGemini活用講座｜Google連携でここまでできる</h3>
+          <div class="meta">
+            <span class="tag tool" style="background:#4285F4;">GEMINI</span>
+            <span class="tag online">ONLINE</span>
+            <span class="tag">初心者歓迎</span>
+          </div>
+        </div>
+        <a href="https://peatix.com/event/4949376/view" target="_blank" rel="noopener" class="event-link">Peatixで見る →</a>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date"><div class="ym">2025.04</div><div class="day">09</div><div class="dow">THU 19:00</div></div>
+        <div class="event-info">
+          <h3>【5名限定】中小企業の業務効率を劇的に変えるGoogle Workspace実践講座</h3>
+          <div class="meta">
+            <span class="tag tool" style="background:#34A853;">GOOGLE</span>
+            <span class="tag online">ONLINE</span>
+            <span class="tag">5名限定</span>
+          </div>
+        </div>
+        <a href="https://peatix.com/event/4940613/view" target="_blank" rel="noopener" class="event-link">Peatixで見る →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming / Peatix follow CTA -->
+<section class="fade" style="background:var(--blue-50);">
+  <div class="container">
+    <div class="peatix-card">
+      <div class="peatix-card-inner">
+        <span class="badge">UPCOMING EVENTS</span>
+        <h3>新しいセミナーは、Peatixで先行公開。</h3>
+        <p>開催予定のイベントはPeatix経由でリリースしています。フォローしておくと、新規開催時に自動で通知が届きます。</p>
+        <a href="https://peatix.com/group/16546509" target="_blank" rel="noopener" class="btn btn-primary" style="background:#fff;color:var(--blue-700);">Peatixをフォローする →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How to Join -->
+<section class="fade" style="background:#fff;">
+  <div class="container">
+    <span class="section-label">HOW TO JOIN</span>
+    <h2 class="section-title">参加方法</h2>
+    <p class="section-lead">どなたでもPeatix経由で簡単にお申し込みいただけます。</p>
+    <div class="step-flow">
+      <div class="flow-item"><div class="label">STEP</div><div class="num">01</div><h4>Peatixで開催情報を確認</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">02</div><h4>気になるイベントへ申込み</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">03</div><h4>支払い・チケット受領</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">04</div><h4>当日Zoomリンクで参加</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">05</div><h4>後日資料・録画も配信</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq fade">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">どんな人が参加していますか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">中小企業の経営者・管理職の方が中心です。職種は営業・人事・マーケ・バックオフィス・現場マネージャーなど多岐にわたります。「AIは初めて」という方も多く参加されています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">事前準備は必要ですか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">基本的にはZoomが使えるPC環境があれば大丈夫です。Claudeを使うセミナーでは、無料アカウントの作成をお願いすることがあります（事前にご案内します）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">録画は配信されますか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">セミナーによりますが、多くの場合は申込者向けに後日録画とスライドを配信しています。当日参加できない場合もご活用いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">社内向けにクローズドで開催してほしい</span><span class="toggle">+</span></div>
+        <div class="faq-a">企業様向けのカスタマイズセミナー・社内研修も承っています。詳しくは <a href="services/ai/training.html" style="color:var(--blue-700);text-decoration:underline;">AI研修ページ</a> をご覧いただくか、お問い合わせフォームよりご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">セミナー登壇のご依頼は可能ですか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">他社主催のイベントへの登壇・講師派遣のご依頼にも対応しています。お問い合わせフォームより内容・日程・対象規模などをお知らせください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container cta-banner-inner">
+    <h2>まずは1度、参加してみませんか。</h2>
+    <p>Peatixで開催予定をチェック、または自社向け講座のご相談はお問い合わせから。</p>
+    <div class="btns">
+      <a href="https://peatix.com/group/16546509" target="_blank" rel="noopener" class="btn btn-primary">Peatixでフォロー →</a>
+      <a href="contact.html" class="btn btn-outline">社内向け講座を相談する</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo-row"><svg class="logo-svg" style="width:40px;height:40px;"><use href="#honshitsuLogo"/></svg><span class="name">HONSHITSU</span></div>
+        <p class="foot-desc">株式会社本質<br>大館本社：〒017-0031 秋田県大館市上代野上代野5-1／2F MORK<br>銀座Office：〒104-0061 東京都中央区銀座1丁目12番4号 N&E BLD. 6F</p>
+      </div>
+      <div class="foot-col"><h5>SERVICE</h5><ul>
+        <li><a href="services/ai/index.html">AI活用</a></li>
+        <li><a href="services/ai/training.html">└ AI研修</a></li>
+        <li><a href="services/ai/support.html">└ AI活用支援</a></li>
+        <li><a href="services/ai/development.html">└ 受託開発</a></li>
+        <li><a href="services/dx/index.html">DX伴走支援</a></li>
+        <li><a href="seminar.html">セミナー</a></li>
+        <li><a href="download.html">資料DL</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>COMPANY</h5><ul>
+        <li><a href="company.html#philosophy">理念</a></li>
+        <li><a href="company.html#ceo">代表メッセージ</a></li>
+        <li><a href="company.html">会社概要</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>CONTACT</h5><ul>
+        <li><a href="contact.html">お問い合わせ</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+        <li><a href="#">利用規約</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 HONSHITSU INC. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

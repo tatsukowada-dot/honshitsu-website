@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tatsukowada-dot.github.io/honshitsu-website/sitemap.xml

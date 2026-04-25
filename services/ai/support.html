@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI活用支援 - Claude実装伴走 | AI活用 | 株式会社本質</title>
+<meta name="description" content="株式会社本質のAI活用支援サービス。Claudeを中心としたAIの社内実装を、ヒアリング・環境構築・カスタムスキル開発・定着伴走まで一気通貫で支援します。" />
+
+<!-- ========== SEO ========== -->
+<link rel="canonical" href="https://tatsukowada-dot.github.io/honshitsu-website/services/ai/support.html">
+<link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI活用支援 - Claude実装伴走 | AI活用 | 株式会社本質">
+<meta property="og:description" content="株式会社本質のAI活用支援サービス。Claudeを中心としたAIの社内実装を、ヒアリング・環境構築・カスタムスキル開発・定着伴走まで一気通貫で支援します。">
+<meta property="og:url" content="https://tatsukowada-dot.github.io/honshitsu-website/services/ai/support.html">
+<meta property="og:image" content="https://tatsukowada-dot.github.io/honshitsu-website/assets/images/ogp.png">
+<meta property="og:site_name" content="株式会社本質">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI活用支援 - Claude実装伴走 | AI活用 | 株式会社本質">
+<meta name="twitter:description" content="株式会社本質のAI活用支援サービス。Claudeを中心としたAIの社内実装を、ヒアリング・環境構築・カスタムスキル開発・定着伴走まで一気通貫で支援します。">
+<meta name="twitter:image" content="https://tatsukowada-dot.github.io/honshitsu-website/assets/images/ogp.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+/* Claude push 専用スタイル */
+.claude-hero{
+  background:
+    radial-gradient(ellipse at top right, #ffe9d6, transparent 60%),
+    radial-gradient(ellipse at bottom left, var(--blue-100), transparent 60%),
+    linear-gradient(180deg,#fff 0%,var(--blue-50) 100%);
+}
+.claude-card{
+  background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);
+  color:#fff;border-radius:var(--radius-lg);padding:48px 40px;
+  position:relative;overflow:hidden;
+}
+.claude-card::before{
+  content:"";position:absolute;top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(204,120,80,.18),transparent 70%);
+}
+.claude-card .badge-claude{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#cc7850;color:#fff;font-size:11px;font-weight:700;letter-spacing:.15em;
+  padding:5px 12px;border-radius:30px;margin-bottom:18px;font-family:"Montserrat",sans-serif;
+}
+.claude-card h3{color:#fff;font-size:26px;margin-bottom:18px;line-height:1.5;}
+.claude-card p{color:rgba(255,255,255,.85);font-size:14.5px;line-height:1.9;margin-bottom:14px;}
+.claude-features{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px;
+}
+.claude-feature{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);padding:18px 20px;
+}
+.claude-feature h4{color:#fff;font-size:14px;margin-bottom:6px;}
+.claude-feature p{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.7;margin:0;}
+@media(max-width:900px){
+  .claude-features{grid-template-columns:1fr;}
+  .claude-card{padding:32px 24px;}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="honshitsuLogo" viewBox="0 0 200 200">
+      <defs>
+        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#a8e9f0"/><stop offset="40%" stop-color="#5b9ee0"/><stop offset="100%" stop-color="#1d52b8"/>
+        </radialGradient>
+      </defs>
+      <circle cx="100" cy="100" r="96" fill="url(#bgGrad)"/>
+      <g fill="none" stroke="#3ee0e0" stroke-linecap="round">
+        <circle cx="100" cy="100" r="84" stroke-width="1" stroke-dasharray="2 4" opacity=".7"/>
+        <circle cx="100" cy="100" r="74" stroke-width="1.2" opacity=".85"/>
+        <circle cx="100" cy="100" r="62" stroke-width="1" stroke-dasharray="6 6" opacity=".6"/>
+        <circle cx="100" cy="100" r="50" stroke-width="1.2" opacity=".75"/>
+        <circle cx="100" cy="100" r="38" stroke-width="1" stroke-dasharray="3 3" opacity=".5"/>
+      </g>
+      <g stroke="#3ee0e0" stroke-width="1" opacity=".55">
+        <line x1="100" y1="6" x2="100" y2="40"/><line x1="100" y1="160" x2="100" y2="194"/>
+        <line x1="6" y1="100" x2="40" y2="100"/><line x1="160" y1="100" x2="194" y2="100"/>
+      </g>
+      <g stroke="#3ee0e0" stroke-width="1.2" opacity=".65" fill="none">
+        <line x1="148" y1="32" x2="178" y2="62"/><line x1="32" y1="148" x2="62" y2="178"/>
+      </g>
+      <text x="100" y="92" font-family="'Cormorant Garamond','Times New Roman',serif" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="1.2" font-weight="500">HONSHITSU</text>
+      <text x="100" y="120" font-family="'Cormorant Garamond','Times New Roman',serif" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing=".5" font-weight="400">Technology</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../../index.html" class="logo">
+      <svg class="logo-svg" aria-label="株式会社本質ロゴ"><use href="#honshitsuLogo"/></svg>
+      <span>HONSHITSU<small>株式会社本質</small></span>
+    </a>
+    <nav>
+      <ul>
+        <li class="current"><a href="#">事業内容 ▾</a>
+          <ul class="dropdown">
+            <li><a href="./index.html">AI活用<small>AI Service</small></a></li>
+            <li><a href="./training.html">　└ AI研修<small>Training</small></a></li>
+            <li><a href="./support.html">　└ AI活用支援<small>Claude Implementation</small></a></li>
+            <li><a href="./development.html">　└ 受託開発<small>Custom Development</small></a></li>
+            <li><a href="../dx/index.html">DX伴走支援<small>DX Consulting</small></a></li>
+          </ul>
+        </li>
+        <li><a href="../../seminar.html">セミナー</a></li>
+        <li><a href="../../news.html">お知らせ</a></li>
+        <li><a href="../../company.html">会社概要</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <a href="../../download.html" class="nav-cta" style="background:#fff;color:var(--blue-700);border:1.5px solid var(--blue-700);">資料DL</a>
+      <a href="../../contact.html" class="nav-cta">お問い合わせ</a>
+    </div>
+    <button class="hamburger" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero claude-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="../../index.html">HOME</a><span>›</span>
+      <a href="./index.html">AI活用</a><span>›</span>
+      AI活用支援
+    </div>
+    <span class="badge-highlight">SERVICE 02 / CLAUDE IMPLEMENTATION</span>
+    <h1>Claudeを、<br>会社の<span class="accent">標準ツール</span>に。</h1>
+    <p class="lead">
+      Anthropic社のAI「Claude」を中心とした業務実装を、ヒアリング・環境構築・カスタムスキル開発・社内浸透まで一気通貫で伴走支援します。「個人で使えるAI」を「組織で成果を出すAI」に変えていきます。
+    </p>
+    <div class="btns">
+      <a href="../../contact.html" class="btn btn-primary">無料相談・お問い合わせ →</a>
+      <a href="#why-claude" class="btn btn-outline">なぜClaudeなのか</a>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="problem fade">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">PROBLEM</span>
+      <h2 class="section-title">こんなお悩みありませんか？</h2>
+    </div>
+    <div class="problem-list">
+      <div class="problem-item"><span class="icon">!</span><p>Claudeを社内で使いたいが、何ができるか具体的に分からない</p></div>
+      <div class="problem-item"><span class="icon">!</span><p>個人プランで触ってはいるが、業務でどう活かすかが見えない</p></div>
+      <div class="problem-item"><span class="icon">!</span><p>セキュリティ・情報漏洩のリスクが不安で、導入に踏み切れない</p></div>
+      <div class="problem-item"><span class="icon">!</span><p>Claude Code・Agent SDK・カスタムスキルなど、技術的な実装ができる人がいない</p></div>
+      <div class="problem-item"><span class="icon">!</span><p>ChatGPTと比べてClaudeの強みがいまいち分からない</p></div>
+      <div class="problem-item"><span class="icon">!</span><p>社内に展開しても、結局一部の人しか使わない</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Claude -->
+<section class="solution fade" id="why-claude">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">WHY CLAUDE</span>
+      <h2 class="section-title">なぜ、私たちはClaudeを推すのか。</h2>
+      <p class="section-lead">数あるAIツールの中で、私たちはClaudeを業務活用のメインに据えることをおすすめしています。その理由は5つあります。</p>
+    </div>
+    <div class="claude-card">
+      <span class="badge-claude">▲ ANTHROPIC CLAUDE</span>
+      <h3>「考える」「書く」「コードを書く」「自然な日本語」<br>業務に必要な4軸のすべてで高水準。</h3>
+      <p>Claudeは、Anthropic社が安全性を重視して開発したAIアシスタントです。複雑な業務文書の理解、長文の整理、コーディング、自然な日本語表現といった、ビジネス現場で本当に必要とされる能力を、いずれも高い水準で備えています。</p>
+      <div class="claude-features">
+        <div class="claude-feature">
+          <h4>① 長文・大量資料の処理</h4>
+          <p>200K トークンの長いコンテキストに対応。社内資料・議事録・契約書など、長大な文書をまとめて読み込んで分析できます。</p>
+        </div>
+        <div class="claude-feature">
+          <h4>② 自然で丁寧な日本語</h4>
+          <p>日本語のトーンや敬語が自然で、社内文書・顧客対応メール・提案書のドラフトに耐える品質を発揮します。</p>
+        </div>
+        <div class="claude-feature">
+          <h4>③ コーディング・自動化</h4>
+          <p>Claude Code を使えば、ノーコードに近い感覚で社内ツールやバッチ処理を構築可能。プログラミング初心者でも開発に踏み込めます。</p>
+        </div>
+        <div class="claude-feature">
+          <h4>④ エージェント開発の基盤</h4>
+          <p>Claude Agent SDK・カスタムスキル・MCP対応で、社内独自ワークフローを"自分で動くAI"として構築できます。</p>
+        </div>
+        <div class="claude-feature">
+          <h4>⑤ 安全性・ガバナンス</h4>
+          <p>Anthropic は安全性研究を重視する企業文化を持ち、セキュリティ・プライバシー設計、企業向けプランも整備されています。</p>
+        </div>
+        <div class="claude-feature">
+          <h4>⑥ 業務に溶け込むUI</h4>
+          <p>Claude Desktop、Claude in Chrome、Cowork モードなど、現場のワークフローに直接入り込めるインターフェースが揃っています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution / 3 axes -->
+<section class="problem fade" style="background:var(--blue-50);">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">SOLUTION</span>
+      <h2 class="section-title">本質のClaude実装伴走、3つの軸。</h2>
+      <p class="section-lead">研修だけでも、ツール導入だけでもない。"使われる状態"を作るための3つの支援です。</p>
+    </div>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <span class="solution-num">01<small>IMPLEMENT</small></span>
+        <h3>Claude業務導入の伴走</h3>
+        <p>Claude Pro / Team / Enterprise の選定と契約サポート、社内利用ルール・ガバナンス設計、ユースケースの可視化を、貴社の現状に合わせて伴走します。</p>
+      </div>
+      <div class="solution-card">
+        <span class="solution-num">02<small>CUSTOMIZE</small></span>
+        <h3>カスタムスキル・MCPの構築</h3>
+        <p>Claude Skills、Claude Agent SDK、MCP（Model Context Protocol）を活用し、貴社固有の業務に特化した「使えるAI」をカスタマイズ。社内SaaSとも連携可能です。</p>
+      </div>
+      <div class="solution-card">
+        <span class="solution-num">03<small>OPERATE</small></span>
+        <h3>運用・定着までの継続伴走</h3>
+        <p>導入直後の社内ワークショップ・FAQ整備、活用促進キャンペーン、継続的な改善提案まで。「導入して終わり」を防ぎ、定着まで責任を持ちます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="effect fade" style="background:#fff;" id="menu">
+  <div class="container">
+    <span class="section-label">SERVICE MENU</span>
+    <h2 class="section-title">支援メニュー一覧</h2>
+    <p class="section-lead">単発のスポット支援から、年間契約での継続伴走まで。フェーズと予算に合わせて柔軟に組み合わせ可能です。</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <span class="badge">START</span>
+        <h3>Claude導入アセスメント</h3>
+        <p>現状ヒアリング、ユースケース整理、最適なプラン提案。これからClaudeを導入する企業向けの初期診断パッケージです。</p>
+        <ul>
+          <li>2〜4週間の集中ヒアリング</li>
+          <li>業務棚卸し・適用シーンマップ作成</li>
+          <li>プラン選定（Pro / Team / Enterprise）</li>
+          <li>ROI試算・推進ロードマップ</li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="badge">CORE</span>
+        <h3>Claude業務実装伴走（3〜6ヶ月）</h3>
+        <p>本質の中核サービス。社内導入から最初の成果が見えるまで、3〜6ヶ月の伴走で組織にClaudeを定着させます。</p>
+        <ul>
+          <li>導入キックオフ・利用ルール策定</li>
+          <li>部門別ユースケース実装支援</li>
+          <li>月次定例MTG・チャットサポート</li>
+          <li>活用状況のレビューと改善提案</li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="badge">CUSTOM</span>
+        <h3>カスタムスキル・エージェント開発</h3>
+        <p>貴社業務に特化したClaudeスキル・エージェントを構築。社内SaaS（Slack、kintone、Salesforce等）との連携にも対応します。</p>
+        <ul>
+          <li>Claude Skills（カスタムスキル）の設計・実装</li>
+          <li>Claude Agent SDK によるエージェント開発</li>
+          <li>MCP連携・社内データソース統合</li>
+          <li>Slack / Teams / メール連携</li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="badge">CODE</span>
+        <h3>Claude Code 法人導入支援</h3>
+        <p>エンジニアやノーコード担当者向けに、Claude Code を使った業務自動化・社内ツール開発の立ち上げを支援します。</p>
+        <ul>
+          <li>Claude Code 環境構築・初期設定</li>
+          <li>社内向けハンズオン研修</li>
+          <li>ノーコード × Claude Code のハイブリッド設計</li>
+          <li>CI/CDやセキュリティポリシーへの組込み</li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="badge">GOVERNANCE</span>
+        <h3>セキュリティ・ガバナンス設計</h3>
+        <p>機密情報の扱い、利用ポリシー、ログ管理など、企業利用で必須となるガバナンスを設計・整備します。</p>
+        <ul>
+          <li>社内利用ルール・ガイドライン策定</li>
+          <li>機密情報・個人情報の取扱い方針</li>
+          <li>監査ログ・モニタリング設計</li>
+          <li>従業員向けセキュリティ研修</li>
+        </ul>
+      </div>
+      <div class="menu-card">
+        <span class="badge">SUBSCRIBE</span>
+        <h3>顧問契約・継続サポート</h3>
+        <p>月額の顧問契約で、Claude周辺の最新情報キャッチアップ・社内Q&A対応・新機能の検証など、長期的な伴走を提供します。</p>
+        <ul>
+          <li>月次定例MTG（オンライン）</li>
+          <li>チャットでのQ&A対応（Slack等）</li>
+          <li>新機能のアップデート共有</li>
+          <li>四半期ごとの活用レビュー</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process fade">
+  <div class="container">
+    <span class="section-label">PROCESS</span>
+    <h2 class="section-title">導入プロセス</h2>
+
+    <div class="step-flow">
+      <div class="flow-item"><div class="label">STEP</div><div class="num">01</div><h4>無料相談</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">02</div><h4>アセスメント</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">03</div><h4>導入・カスタマイズ</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">04</div><h4>定着伴走</h4></div>
+      <div class="flow-item"><div class="label">STEP</div><div class="num">05</div><h4>継続改善</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq fade">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">ChatGPTとClaude、どちらを選べばいいですか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">用途・組織文化・既存ツールとの相性により異なります。長文処理・自然な日本語・コーディング・エージェント構築を重視するならClaudeをおすすめしますが、ChatGPTやCopilotと併用するハイブリッド構成も多く採用しています。アセスメントの段階で最適な構成をご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">セキュリティ面で気を付けるべきことは？</span><span class="toggle">+</span></div>
+        <div class="faq-a">企業利用では、Claude Team / Enterprise プランを利用すれば学習データへの混入を防止できます。さらに、社内データの取り扱いルール・ログ監査・利用者ごとのアクセス権設定など、ガバナンス設計を一緒に行います。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">プログラミング知識がなくても導入できますか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">はい、可能です。Claudeは管理画面・チャットUI上で多くの操作が完結します。さらに必要に応じて、ノーコードツール（kintone、Zapier、n8n等）と組み合わせる構成もご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">最低契約期間はありますか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">スポット相談（数時間単位）から月額契約、年間プロジェクトまで、柔軟に対応しています。まずは無料相談でご要望をお聞かせください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">既に他社のAIサービスを使っていますが、相談できますか？</span><span class="toggle">+</span></div>
+        <div class="faq-a">もちろんです。既存のChatGPT・Copilot・Geminiなどと併用しながら、Claudeを"得意分野で活躍する"配置にすることが多いです。マルチAI環境のオーケストレーションもご相談ください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container cta-banner-inner">
+    <h2>Claudeで、組織の生産性をもう一段引き上げる。</h2>
+    <p>無料相談ではアセスメントの初期ヒアリングまで対応します。お気軽にどうぞ。</p>
+    <div class="btns">
+      <a href="../../contact.html" class="btn btn-primary">無料相談・お問い合わせ →</a>
+      <a href="./index.html" class="btn btn-outline">AI活用サービス全体を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo-row">
+          <svg class="logo-svg" style="width:40px;height:40px;"><use href="#honshitsuLogo"/></svg>
+          <span class="name">HONSHITSU</span>
+        </div>
+        <p class="foot-desc">
+          株式会社本質<br>
+          大館本社：〒017-0031 秋田県大館市上代野上代野5-1／2F MORK<br>
+          銀座Office：〒104-0061 東京都中央区銀座1丁目12番4号 N&E BLD. 6F
+        </p>
+      </div>
+      <div class="foot-col"><h5>SERVICE</h5><ul>
+        <li><a href="./index.html">AI活用</a></li>
+        <li><a href="./training.html">└ AI研修</a></li>
+        <li><a href="./support.html">└ AI活用支援</a></li>
+        <li><a href="./development.html">└ 受託開発</a></li>
+        <li><a href="../dx/index.html">DX伴走支援</a></li>
+        <li><a href="../../seminar.html">セミナー</a></li>
+        <li><a href="../../download.html">資料DL</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>COMPANY</h5><ul>
+        <li><a href="../../company.html#philosophy">理念</a></li>
+        <li><a href="../../company.html#ceo">代表メッセージ</a></li>
+        <li><a href="../../company.html">会社概要</a></li>
+        <li><a href="../../news.html">お知らせ</a></li>
+        <li><a href="../../seminar.html">セミナー</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>CONTACT</h5><ul>
+        <li><a href="../../contact.html">お問い合わせ</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+        <li><a href="#">利用規約</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 HONSHITSU INC. ALL RIGHTS RESERVED.</div>
+  </div>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
