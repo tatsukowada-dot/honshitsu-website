@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/</loc>
+    <loc>https://www.honshitsu.tech/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/services/ai/index.html</loc>
+    <loc>https://www.honshitsu.tech/services/ai/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/services/ai/training.html</loc>
+    <loc>https://www.honshitsu.tech/services/ai/training.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/services/ai/support.html</loc>
+    <loc>https://www.honshitsu.tech/services/ai/support.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/services/ai/development.html</loc>
+    <loc>https://www.honshitsu.tech/services/ai/development.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/services/dx/index.html</loc>
+    <loc>https://www.honshitsu.tech/services/dx/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/seminar.html</loc>
+    <loc>https://www.honshitsu.tech/seminar.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/download.html</loc>
+    <loc>https://www.honshitsu.tech/download.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/news.html</loc>
+    <loc>https://www.honshitsu.tech/news.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/company.html</loc>
+    <loc>https://www.honshitsu.tech/company.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://tatsukowada-dot.github.io/honshitsu-website/contact.html</loc>
+    <loc>https://www.honshitsu.tech/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
